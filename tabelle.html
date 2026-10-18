@@ -1,0 +1,267 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="600">
+<title>Wetter Bayerischer Wald / Böhmerwald</title>
+<style>
+:root{color-scheme:dark;--bg:#000;--card:#10151b;--tx:#e8edf3;--mu:#97a3b2;--ln:#26303b;--ak:#64b5f6;--warm:#ef9a9a;--kalt:#90caf9}
+nav.nv{display:flex;gap:10px;flex-wrap:wrap;margin:2px 0 10px}
+nav.nv a{color:#cfd8e3;background:#1b2530;border:1px solid #33465a;border-radius:8px;font:600 15px/1 system-ui,sans-serif;text-decoration:none;padding:9px 18px}
+nav.nv a:hover{background:#26384a}nav.nv a.ak{background:#2f5d94;border-color:#4f86c6;color:#fff}
+nav.nv button{font:600 15px/1 system-ui,sans-serif;color:#e8edf3;background:#14301f;border:1px solid #2f7a4d;border-radius:8px;padding:9px 18px;cursor:pointer}
+nav.nv a,nav.nv button{box-sizing:border-box;height:38px;margin:0;padding-top:0;padding-bottom:0;display:inline-flex;align-items:center;justify-content:center;line-height:1}
+nav.nv button[hidden]{display:none}nav.nv button.w{background:#33210f;border-color:#a8691f}nav.nv button.an{filter:brightness(1.35)}nav.nv button:hover{filter:brightness(1.25)}
+a{color:var(--ak)}
+*{box-sizing:border-box}body{margin:0;font:16px/1.45 system-ui,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--tx)}
+main{max-width:980px;margin:0 auto;padding:14px}h1{font-size:1.35rem;margin:.2em 0}h2{font-size:1.05rem;margin:0 0 .6em}
+.sub{color:var(--mu);font-size:.9rem;margin-bottom:12px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:10px;padding:12px 14px;margin-bottom:12px}
+.jetzt{display:flex;flex-wrap:wrap;gap:6px 24px;align-items:center}.gross{font-size:clamp(3.4rem,15vw,6rem);font-weight:600;line-height:1}
+details.txt>summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+details.txt>summary::-webkit-details-marker{display:none}details.txt>summary h2{margin:0}details.txt>summary .zt{color:var(--mu);font-size:.88rem}
+details.txt>summary::after{content:"\25be";margin-left:auto;color:var(--mu)}details.txt[open]>summary::after{content:"\25b4"}
+td.kalt,td.warm,td.tt{font-size:1.4rem;font-weight:600;line-height:1}
+table.ot td:first-child{font-size:1.25rem;line-height:1}
+.tx{margin-top:10px;border-top:1px solid var(--ln);padding-top:10px}.tx p{margin:0 0 .75em;line-height:1.55}.tx p:last-child{margin-bottom:0}.tx p.ein{color:var(--mu);font-style:italic}
+.kv span{color:var(--mu)}
+.mond{margin:12px 0 0;padding-top:10px;border-top:1px solid var(--ln)}
+.tx .sect{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ak);margin:14px 0 6px;font-weight:600}.tx .sect:first-child{margin-top:0}
+.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{padding:6px 8px;text-align:right;border-bottom:1px solid var(--ln);white-space:nowrap}th{color:var(--mu);font-weight:500;font-size:.85rem}
+th:first-child,td:first-child,th.l{text-align:left}tr:last-child td{border-bottom:0}
+.w{border-left:6px solid;padding:8px 12px;margin-bottom:8px;border-radius:4px;background:var(--bg)}.w b{display:block}.w small{color:var(--mu)}
+.kalt{color:var(--kalt)}.warm{color:var(--warm)}.fuss{color:var(--mu);font-size:.8rem;text-align:center;margin:18px 0}
+.fehl{color:#b26a00;font-size:.85rem}
+@media(max-width:640px){main{padding:10px 8px}
+table.ot th,table.ot td{padding:5px 3px;font-size:.84rem}
+table.ot td:first-child{white-space:normal;overflow-wrap:anywhere;line-height:1.2}
+table.ot th:nth-child(3),table.ot td:nth-child(3){padding-left:2px;padding-right:2px}
+table.ot td:last-child{font-size:.72rem;color:var(--mu);white-space:normal;line-height:1.15}
+table.ot th{white-space:normal;line-height:1.1;font-size:.68rem;vertical-align:bottom;letter-spacing:-.2px}
+table.ot td:first-child{min-width:44%}
+table.ot td:nth-child(2){padding-left:2px;padding-right:2px}
+table.ot td:nth-child(4){white-space:nowrap}
+table.ot td.kalt,table.ot td.warm,td.kalt,td.warm,td.tt{font-size:1.2rem}
+table.ot td:first-child{font-size:.84rem}}
+</style></head><body><main>
+<nav class="nv"><a href="index.html">Wetter</a><a href="karte.html">Karte</a><a class="ak" href="tabelle.html">Tabelle</a><a href="impressum.html">INFO</a><button id="ap" class="au" hidden></button><button id="aw" class="au w" hidden></button></nav>
+<h1>Wetter Bayerischer Wald / Böhmerwald</h1>
+<div class="sub">Stand: 14.11.2026 21:30 Uhr · automatische Aktualisierung alle 10 Min. · Node 56214 · DF0ZW</div>
+<div class="card"><h2>⚠️ Aktuelle Warnungen</h2>
+<div class="w" style="border-color:#f28c00"><b>Markante Wetterwarnung: FROST</b><div>Landkreise Cham, Regen, Freyung-Grafenau und Deggendorf</div><small>14.11. 17:00 – 15.11. 11:00</small><div>Es tritt leichter Frost zwischen -2 °C und -5 °C auf. In Tal- und Muldenlagen sinken die Temperaturen auf Werte bis -7 °C.</div></div>
+<div class="w" style="border-color:#f28c00"><b>Markante Wetterwarnung: NEBEL</b><div>Landkreise Cham und Regen</div><small>14.11. 18:17 – 15.11. 08:00</small><div>Es tritt gebietsweise Nebel mit Sichtweiten unter 150 Metern auf.</div></div>
+<div class="w" style="border-color:#f28c00"><b>Markante Wetterwarnung: FROST</b><div>Landkreis Dingolfing-Landau</div><small>14.11. 19:00 – 15.11. 10:00</small><div>Es tritt leichter Frost zwischen -1 °C und -4 °C auf.</div></div>
+<div class="w" style="border-color:#f28c00"><b>Markante Wetterwarnung: GLÄTTE</b><div>Landkreise Cham und Regen</div><small>14.11. 21:09 – 15.11. 10:00</small><div>Es besteht vereinzelt Glättegefahr.</div></div>
+</div>
+<div class="card"><details class="txt"><summary><h2>📝 Letzte Prognose gesendet um 18:30 Uhr</h2><span class="zt">Samstag, 14.11.2026</span></summary><div class="tx"><p class="ein">Achtung, es folgt die Wetterprognose für den Bayerischen Wald, den Böhmerwald und die vorgelagerten Regionen von Delta Foxtrott Null Zulu Whiskey.</p><p>Guten Abend, heute ist Samstag, der vierzehnte November, 18 Uhr. Morgen geht die Sonne um 7:16 Uhr auf und um 16:27 Uhr unter.</p><div class="sect">Aktuelle Wetterdaten</div><p>Temperatur 0,9 °C, sonnig, trocken. Die Luftfeuchtigkeit beträgt 84 %. Der Luftdruck beträgt 1022 hPa. Der Wind weht aus Nordost mit 6 km/h.</p><p>Der kälteste Ort im Umkreis von 100 km ist aktuell Innergefild in Tschechien, in 1052 m über Normalnull, mit −4,2 °C. Der Ort des maximalen gemessenen Tiefstwerts der letzten 24 Stunden ist: Innergefild in Tschechien, in 1052 m über Normalnull, mit −10,2 °C, gemessen um 5:50 Uhr heute früh.</p><div class="sect">Die Vorhersage für die Nacht und morgen</div><p>In der Nacht: klar, trocken. Morgen Vormittag: heiter, trocken. Morgen Nachmittag: wolkig, trocken. Morgen Abend: stark bewölkt, trocken.</p><p>Die Niederschlagswahrscheinlichkeit ist mit höchstens 10 % gering.</p><p>Im Verlauf der Nacht sinkt die Temperatur von 0 °C auf −6 °C bis 6 Uhr. Dabei besteht Frostgefahr. Morgen liegen die Temperaturen zwischen −6 und 5 °C.</p><p>Heute ist eine mäßige Inversion zu erwarten.</p><p>Morgen scheint die Sonne insgesamt etwa 5 Stunden. Morgen ist es nahezu windstill.</p><div class="sect">Einschätzung der Wetterentwicklung für die nächsten drei Tage</div><p>Der Luftdruck sinkt leicht, das Wetter wird tendenziell unbeständiger. Die Höchstwerte liegen morgen bei 5 und übermorgen bei 6 °C. Die Temperaturen bleiben ähnlich. Niederschlag ist übermorgen zu erwarten. Übermorgen ist dabei Schnee möglich.</p></div></details></div>
+<div class="card"><h2>Aktuelle Daten</h2><div class="jetzt"><div class="gross">-2,0 °C</div><div style="font-size:clamp(2.4rem,11vw,4.2rem);line-height:1">☀️</div><div class="kv"><div>sonnig</div><div><span>Wind:</span> O 4 km/h, Böen 8</div><div><span>Feuchte:</span> 91 % · <span>Luftdruck:</span> 1022 hPa</div><div><span>Sonne:</span> ↑ 07:14 ↓ 16:28</div></div></div><p class="mond">🌙 Der Mond: zunehmende Sichel, zu 26 % beleuchtet.</p></div>
+<div class="card"><h2>Die nächsten Tage</h2><div class="scroll"><table><tr><th>Tag</th><th></th><th class="l">Wetter</th><th>Tief</th><th>Hoch</th><th>Regen mm</th><th>Regen %</th><th>Böen km/h</th></tr>
+<tr><td>Heute <small style="color:var(--mu)">14.11.</small></td><td>☀️</td><td style="text-align:left">sonnig</td><td class="kalt" style="color:#79c2ff">-3°</td><td class="warm" style="color:#ffbd95">7°</td><td>0,0</td><td>1</td><td>13</td></tr>
+<tr><td>Sonntag <small style="color:var(--mu)">15.11.</small></td><td>⛅</td><td style="text-align:left">wolkig</td><td class="kalt" style="color:#64b4ff">-6°</td><td class="warm" style="color:#ffc5a0">5°</td><td>0,0</td><td>3</td><td>9</td></tr>
+<tr><td>Montag <small style="color:var(--mu)">16.11.</small></td><td>🌧️</td><td style="text-align:left">Regen</td><td class="kalt" style="color:#c1dff8">-1°</td><td class="warm" style="color:#ffc29b">6°</td><td>7,8</td><td>67</td><td>30</td></tr>
+<tr><td>Dienstag <small style="color:var(--mu)">17.11.</small></td><td>🌧️</td><td style="text-align:left">Regen</td><td class="kalt" style="color:#ffcaa6">5°</td><td class="warm" style="color:#ffb68c">8°</td><td>28,6</td><td>77</td><td>35</td></tr>
+</table></div></div>
+<div class="card"><h2>Verlauf (alle 3 Stunden)</h2><div class="scroll"><table><tr><th>Zeit</th><th></th><th class="l">Wetter</th><th>Temp.</th><th>Regen mm</th><th>Wind</th><th>Böen</th><th>Wolken %</th><th>hPa</th></tr>
+<tr><td>21:00</td><td>☀️</td><td style="text-align:left">sonnig</td><td class="tt" style="color:#96cefc">-2,2°</td><td>0,0</td><td>NO 4</td><td>9</td><td>2</td><td>1022</td></tr>
+<tr><td>So 00:00</td><td>☀️</td><td style="text-align:left">sonnig</td><td class="tt" style="color:#74bfff">-4,1°</td><td>0,0</td><td>O 4</td><td>7</td><td>2</td><td>1022</td></tr>
+<tr><td>So 03:00</td><td>☀️</td><td style="text-align:left">sonnig</td><td class="tt" style="color:#69b8ff">-5,6°</td><td>0,0</td><td>SO 2</td><td>6</td><td>4</td><td>1021</td></tr>
+<tr><td>So 06:00</td><td>🌤️</td><td style="text-align:left">heiter</td><td class="tt" style="color:#64b4ff">-6,4°</td><td>0,0</td><td>O 2</td><td>6</td><td>18</td><td>1020</td></tr>
+<tr><td>So 09:00</td><td>🌤️</td><td style="text-align:left">heiter</td><td class="tt" style="color:#76c0ff">-3,9°</td><td>0,0</td><td>SW 2</td><td>4</td><td>25</td><td>1019</td></tr>
+<tr><td>So 12:00</td><td>⛅</td><td style="text-align:left">wolkig</td><td class="tt" style="color:#f8d4bb">3,1°</td><td>0,0</td><td>SW 4</td><td>7</td><td>40</td><td>1016</td></tr>
+<tr><td>So 15:00</td><td>⛅</td><td style="text-align:left">wolkig</td><td class="tt" style="color:#ffc6a1">5,2°</td><td>0,0</td><td>SW 4</td><td>9</td><td>61</td><td>1014</td></tr>
+<tr><td>So 18:00</td><td>⛅</td><td style="text-align:left">wolkig</td><td class="tt" style="color:#f0dbce">2,1°</td><td>0,0</td><td>NO 4</td><td>7</td><td>62</td><td>1015</td></tr>
+<tr><td>So 21:00</td><td>🌥️</td><td style="text-align:left">stark bewölkt</td><td class="tt" style="color:#e0e9f3">0,1°</td><td>0,0</td><td>W 2</td><td>7</td><td>73</td><td>1014</td></tr>
+<tr><td>Mo 00:00</td><td>☁️</td><td style="text-align:left">bedeckt</td><td class="tt" style="color:#cbe2f7">-0,6°</td><td>0,0</td><td>NO 2</td><td>7</td><td>94</td><td>1012</td></tr>
+<tr><td>Mo 03:00</td><td>☁️</td><td style="text-align:left">bedeckt</td><td class="tt" style="color:#cee4f7">-0,5°</td><td>0,0</td><td>S 4</td><td>9</td><td>100</td><td>1011</td></tr>
+<tr><td>Mo 06:00</td><td>🌧️</td><td style="text-align:left">Regen</td><td class="tt" style="color:#e4e6ea">0,6°</td><td>0,4</td><td>S 4</td><td>11</td><td>97</td><td>1010</td></tr>
+<tr><td>Mo 09:00</td><td>🌧️</td><td style="text-align:left">Regen</td><td class="tt" style="color:#f4d7c4">2,6°</td><td>0,2</td><td>SW 7</td><td>17</td><td>84</td><td>1009</td></tr>
+<tr><td>Mo 12:00</td><td>🌧️</td><td style="text-align:left">Regen</td><td class="tt" style="color:#ffc5a0">5,4°</td><td>0,2</td><td>SW 11</td><td>26</td><td>91</td><td>1009</td></tr>
+<tr><td>Mo 15:00</td><td>🌧️</td><td style="text-align:left">Regen</td><td class="tt" style="color:#ffc29b">6,0°</td><td>0,3</td><td>SW 11</td><td>30</td><td>90</td><td>1009</td></tr>
+<tr><td>Mo 18:00</td><td>🌧️</td><td style="text-align:left">Regen</td><td class="tt" style="color:#ffc7a2">5,1°</td><td>0,5</td><td>SW 9</td><td>24</td><td>93</td><td>1010</td></tr>
+</table></div></div>
+<div class="card"><h2>Kälteste Orte jetzt – alle Stationen (76)</h2><div class="scroll"><table class="ot"><tr><th>Ort</th><th>Land</th><th>Höhe m</th><th>Temperatur</th><th>gemessen</th></tr>
+<tr><td>Volary (Wallern)</td><td>CZ</td><td>749</td><td class="kalt" style="color:#5cafff">-7,5 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Borová Lada (Ferchenhaid)</td><td>CZ</td><td>898</td><td class="kalt" style="color:#62b3ff">-6,7 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Černá v Pošumaví (Schwarzbach am Moldaustausee)</td><td>CZ</td><td>740</td><td class="kalt" style="color:#64b4ff">-6,3 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Horská Kvilda (Innergefild)</td><td>CZ</td><td>1052</td><td class="kalt" style="color:#65b5ff">-6,2 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Zlatý stoleček (Goldener Stuhl)</td><td>CZ</td><td>1197</td><td class="kalt" style="color:#74bfff">-4,1 °C</td><td>14.11. 20:10</td></tr>
+<tr><td>Tachov (Tachau)</td><td>CZ</td><td>487</td><td class="kalt" style="color:#75bfff">-4,0 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Rokytská slať (Weitfäller Filz)</td><td>CZ</td><td>1098</td><td class="kalt" style="color:#76c0ff">-3,9 °C</td><td>14.11. 19:50</td></tr>
+<tr><td>Vimperk (Winterberg)</td><td>CZ</td><td>637</td><td class="kalt" style="color:#76c0ff">-3,8 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Konstantinovy Lázně (Konstantinsbad)</td><td>CZ</td><td>530</td><td class="kalt" style="color:#78c2ff">-3,5 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Kepelské Zhůří (Haidl Am Ahornberg)</td><td>CZ</td><td>928</td><td class="kalt" style="color:#86c8fe">-2,7 °C</td><td>14.11. 20:10</td></tr>
+<tr><td>Innenried</td><td>DE</td><td>621</td><td class="kalt" style="color:#90ccfd">-2,4 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Kubova Huť (Kubohütten)</td><td>CZ</td><td>997</td><td class="kalt" style="color:#96cefc">-2,2 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Großer Arber</td><td>DE</td><td>1436</td><td class="kalt" style="color:#96cefc">-2,2 °C</td><td>14.11. 18:00</td></tr>
+<tr><td>Schorndorf-Knoebling</td><td>DE</td><td>398</td><td class="kalt" style="color:#9acffc">-2,1 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Rokycany</td><td>CZ</td><td>397</td><td class="kalt" style="color:#a4d3fb">-1,8 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Mallersdorf-Pfaffenb</td><td>DE</td><td>418</td><td class="kalt" style="color:#aad6fa">-1,6 °C</td><td>14.11. 20:00</td></tr>
+<tr><td>Saldenburg-Entschenr</td><td>DE</td><td>456</td><td class="kalt" style="color:#aed7fa">-1,5 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Větřín (Farbenberg)</td><td>CZ</td><td>1157</td><td class="kalt" style="color:#aed7fa">-1,5 °C</td><td>14.11. 20:10</td></tr>
+<tr><td>Straubing</td><td>DE</td><td>350</td><td class="kalt" style="color:#b4daf9">-1,3 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Untergriesbach-Glotz</td><td>DE</td><td>572</td><td class="kalt" style="color:#b4daf9">-1,3 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Domažlice (Taus)</td><td>CZ</td><td>458</td><td class="kalt" style="color:#b4daf9">-1,3 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Churáňov (Koran)</td><td>CZ</td><td>1118</td><td class="kalt" style="color:#bbdcf9">-1,1 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Oberviechtach</td><td>DE</td><td>596</td><td class="kalt" style="color:#beddf8">-1,0 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Kašperské Hory (Bergreichenstein)</td><td>CZ</td><td>728</td><td class="kalt" style="color:#beddf8">-1,0 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Metten</td><td>DE</td><td>314</td><td class="kalt" style="color:#beddf8">-1,0 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Hojsova Stráž (Eisenstraß)</td><td>CZ</td><td>866</td><td class="kalt" style="color:#beddf8">-1,0 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Plzeň, Mikulka (Pilsen)</td><td>CZ</td><td>360</td><td class="kalt" style="color:#beddf8">-1,0 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Staňkov (Markt Stankau)</td><td>CZ</td><td>362</td><td class="kalt" style="color:#c1dff8">-0,9 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Gottfrieding</td><td>DE</td><td>350</td><td class="kalt" style="color:#c5e0f8">-0,8 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Přimda (Pfraumberg)</td><td>CZ</td><td>743</td><td class="kalt" style="color:#c5e0f8">-0,8 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Strakonice, Nové Strakonice (Strakonitz)</td><td>CZ</td><td>404</td><td class="kalt" style="color:#c8e1f7">-0,7 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Waldmuenchen</td><td>DE</td><td>499</td><td class="kalt" style="color:#cbe2f7">-0,6 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Sonnen</td><td>DE</td><td>847</td><td class="kalt" style="color:#cee4f7">-0,5 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Regensburg</td><td>DE</td><td>365</td><td class="kalt" style="color:#cee4f7">-0,5 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Schmidgaden</td><td>DE</td><td>416</td><td class="kalt" style="color:#cee4f7">-0,5 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Schwandorf</td><td>DE</td><td>356</td><td class="kalt" style="color:#cee4f7">-0,5 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Wiesenfelden-Utzenze</td><td>DE</td><td>680</td><td class="kalt" style="color:#cee4f7">-0,5 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Hohenthann</td><td>DE</td><td>468</td><td class="kalt" style="color:#d2e5f6">-0,4 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Zwiesel</td><td>DE</td><td>615</td><td class="kalt" style="color:#d2e5f6">-0,4 °C</td><td>14.11. 20:00</td></tr>
+<tr><td>Nittenau-Harting</td><td>DE</td><td>430</td><td class="kalt" style="color:#d2e5f6">-0,4 °C</td><td>14.11. 20:00</td></tr>
+<tr><td>Schoensee-Dietersdor</td><td>DE</td><td>684</td><td class="kalt" style="color:#d5e6f6">-0,3 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Altendorf</td><td>DE</td><td>391</td><td class="kalt" style="color:#d5e6f6">-0,3 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Mehring, Kr. Altoett</td><td>DE</td><td>413</td><td class="kalt" style="color:#d5e6f6">-0,3 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Vilsbiburg</td><td>DE</td><td>462</td><td class="kalt" style="color:#d5e6f6">-0,3 °C</td><td>14.11. 20:00</td></tr>
+<tr><td>Hagelstadt</td><td>DE</td><td>364</td><td class="kalt" style="color:#d8e7f6">-0,2 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Pfarrkirchen</td><td>DE</td><td>381</td><td class="kalt" style="color:#dce9f5">-0,1 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Špičák (Spitzberg)</td><td>CZ</td><td>973</td><td class="kalt" style="color:#dfeaf5">0,0 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Sankt Englmar</td><td>DE</td><td>804</td><td class="kalt" style="color:#e0e9f3">0,1 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Loiching</td><td>DE</td><td>416</td><td class="kalt" style="color:#e1e9f1">0,2 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Mamming-Schneiderber</td><td>DE</td><td>448</td><td class="kalt" style="color:#e1e9f1">0,2 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Rotthalmuenster (Lan</td><td>DE</td><td>388</td><td class="kalt" style="color:#e1e9f1">0,2 °C</td><td>14.11. 20:00</td></tr>
+<tr><td>Langquaid-Oberschnei</td><td>DE</td><td>378</td><td class="kalt" style="color:#e1e9f1">0,2 °C</td><td>14.11. 20:00</td></tr>
+<tr><td>Lam-Lambach</td><td>DE</td><td>688</td><td class="kalt" style="color:#e1e8ef">0,3 °C</td><td>14.11. 20:00</td></tr>
+<tr><td>Grainet-Rehberg</td><td>DE</td><td>628</td><td class="kalt" style="color:#e2e7ee">0,4 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Pocking</td><td>DE</td><td>323</td><td class="kalt" style="color:#e2e7ee">0,4 °C</td><td>14.11. 20:00</td></tr>
+<tr><td>Bogen-Pfelling</td><td>DE</td><td>343</td><td class="kalt" style="color:#e2e7ee">0,4 °C</td><td>14.11. 20:00</td></tr>
+<tr><td>Wurmannsquick-Egelsb</td><td>DE</td><td>474</td><td class="kalt" style="color:#e2e7ee">0,4 °C</td><td>14.11. 20:00</td></tr>
+<tr><td>Trausnitz-Reisach</td><td>DE</td><td>464</td><td class="kalt" style="color:#e2e7ee">0,4 °C</td><td>14.11. 20:00</td></tr>
+<tr><td>Buechlberg-Tannoed</td><td>DE</td><td>455</td><td class="kalt" style="color:#e3e6ec">0,5 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Waidhaus-Pfrentsch</td><td>DE</td><td>501</td><td class="kalt" style="color:#e3e6ec">0,5 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Lindberg-Buchenau</td><td>DE</td><td>750</td><td class="kalt" style="color:#e3e6ec">0,5 °C</td><td>14.11. 20:00</td></tr>
+<tr><td>Osterhofen-Thundorf</td><td>DE</td><td>310</td><td class="kalt" style="color:#e4e6ea">0,6 °C</td><td>14.11. 20:00</td></tr>
+<tr><td>Nepomuk</td><td>CZ</td><td>471</td><td class="kalt" style="color:#e5e5e8">0,7 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Weiding, Kreis Cham-</td><td>DE</td><td>424</td><td class="kalt" style="color:#e5e5e8">0,7 °C</td><td>14.11. 20:00</td></tr>
+<tr><td>Prackenbach-Neuhaeus</td><td>DE</td><td>585</td><td class="kalt" style="color:#e5e5e8">0,7 °C</td><td>14.11. 18:00</td></tr>
+<tr><td>Falkenberg,Kr.Rottal</td><td>DE</td><td>471</td><td class="kalt" style="color:#e5e4e6">0,8 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Muehldorf</td><td>DE</td><td>406</td><td class="kalt" style="color:#e5e4e6">0,8 °C</td><td>14.11. 20:00</td></tr>
+<tr><td>Landshut-Reithof</td><td>DE</td><td>490</td><td class="kalt" style="color:#e6e3e4">0,9 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Aldersbach-Kramersep</td><td>DE</td><td>374</td><td class="kalt" style="color:#e9e1de">1,2 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Fuerstenzell</td><td>DE</td><td>476</td><td class="kalt" style="color:#e9e1de">1,2 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Český Krumlov, Srnín (Krumau)</td><td>CZ</td><td>546</td><td class="kalt" style="color:#e9e1de">1,2 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Teisnach</td><td>DE</td><td>400</td><td class="kalt" style="color:#eae0db">1,4 °C</td><td>14.11. 18:00</td></tr>
+<tr><td>České Budějovice,Rožnov (Budweis)</td><td>CZ</td><td>395</td><td class="kalt" style="color:#ebdfd9">1,5 °C</td><td>14.11. 20:50</td></tr>
+<tr><td>Kirchberg/Niederbaye</td><td>DE</td><td>684</td><td class="kalt" style="color:#ecded7">1,6 °C</td><td>14.11. 18:00</td></tr>
+<tr><td>Simbach/Inn</td><td>DE</td><td>358</td><td class="kalt" style="color:#edddd3">1,8 °C</td><td>14.11. 20:00</td></tr>
+<tr><td>Klatovy (Klattau)</td><td>CZ</td><td>421</td><td class="kalt" style="color:#f2d9c8">2,4 °C</td><td>14.11. 20:50</td></tr>
+</table></div></div>
+<div class="card"><h2>Kälteste Orte im Umkreis (letzte 24 Stunden) – alle Stationen (76)</h2><div class="scroll"><table class="ot"><tr><th>Ort</th><th>Land</th><th>Höhe m</th><th>Tiefstwert</th><th>gemessen</th></tr>
+<tr><td>Horská Kvilda (Innergefild)</td><td>CZ</td><td>1052</td><td class="kalt" style="color:#4aa2ff">-10,2 °C</td><td>14.11. 05:50</td></tr>
+<tr><td>Volary (Wallern)</td><td>CZ</td><td>749</td><td class="kalt" style="color:#53a9ff">-8,8 °C</td><td>14.11. 06:10</td></tr>
+<tr><td>Borová Lada (Ferchenhaid)</td><td>CZ</td><td>898</td><td class="kalt" style="color:#59adff">-7,9 °C</td><td>14.11. 07:20</td></tr>
+<tr><td>Černá v Pošumaví (Schwarzbach am Moldaustausee)</td><td>CZ</td><td>740</td><td class="kalt" style="color:#5fb1ff">-7,0 °C</td><td>14.11. 06:40</td></tr>
+<tr><td>Konstantinovy Lázně (Konstantinsbad)</td><td>CZ</td><td>530</td><td class="kalt" style="color:#6ab8ff">-5,5 °C</td><td>14.11. 07:50</td></tr>
+<tr><td>Churáňov (Koran)</td><td>CZ</td><td>1118</td><td class="kalt" style="color:#6cb9ff">-5,3 °C</td><td>14.11. 06:50</td></tr>
+<tr><td>Tachov (Tachau)</td><td>CZ</td><td>487</td><td class="kalt" style="color:#6cb9ff">-5,3 °C</td><td>14.11. 06:50</td></tr>
+<tr><td>Větřín (Farbenberg)</td><td>CZ</td><td>1157</td><td class="kalt" style="color:#6dbaff">-5,1 °C</td><td>14.11. 06:40</td></tr>
+<tr><td>Staňkov (Markt Stankau)</td><td>CZ</td><td>362</td><td class="kalt" style="color:#6ebbff">-5,0 °C</td><td>14.11. 07:10</td></tr>
+<tr><td>Strakonice, Nové Strakonice (Strakonitz)</td><td>CZ</td><td>404</td><td class="kalt" style="color:#6fbcff">-4,8 °C</td><td>14.11. 07:10</td></tr>
+<tr><td>Großer Arber</td><td>DE</td><td>1436</td><td class="kalt" style="color:#6fbcff">-4,8 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Muehldorf</td><td>DE</td><td>406</td><td class="kalt" style="color:#72bdff">-4,4 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Zlatý stoleček (Goldener Stuhl)</td><td>CZ</td><td>1197</td><td class="kalt" style="color:#73beff">-4,3 °C</td><td>14.11. 08:10</td></tr>
+<tr><td>Kepelské Zhůří (Haidl Am Ahornberg)</td><td>CZ</td><td>928</td><td class="kalt" style="color:#73beff">-4,2 °C</td><td>14.11. 06:20</td></tr>
+<tr><td>Mallersdorf-Pfaffenb</td><td>DE</td><td>418</td><td class="kalt" style="color:#74bfff">-4,1 °C</td><td>14.11. 08:00</td></tr>
+<tr><td>Rokycany</td><td>CZ</td><td>397</td><td class="kalt" style="color:#74bfff">-4,1 °C</td><td>14.11. 07:20</td></tr>
+<tr><td>Vimperk (Winterberg)</td><td>CZ</td><td>637</td><td class="kalt" style="color:#76c0ff">-3,9 °C</td><td>14.11. 07:20</td></tr>
+<tr><td>Rokytská slať (Weitfäller Filz)</td><td>CZ</td><td>1098</td><td class="kalt" style="color:#76c0ff">-3,9 °C</td><td>14.11. 19:50</td></tr>
+<tr><td>Kubova Huť (Kubohütten)</td><td>CZ</td><td>997</td><td class="kalt" style="color:#76c0ff">-3,8 °C</td><td>14.11. 06:20</td></tr>
+<tr><td>Schorndorf-Knoebling</td><td>DE</td><td>398</td><td class="kalt" style="color:#77c1ff">-3,7 °C</td><td>14.11. 05:00</td></tr>
+<tr><td>Vilsbiburg</td><td>DE</td><td>462</td><td class="kalt" style="color:#7bc3ff">-3,2 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Nepomuk</td><td>CZ</td><td>471</td><td class="kalt" style="color:#7bc3ff">-3,2 °C</td><td>14.11. 06:40</td></tr>
+<tr><td>České Budějovice,Rožnov (Budweis)</td><td>CZ</td><td>395</td><td class="kalt" style="color:#7bc3ff">-3,2 °C</td><td>14.11. 04:50</td></tr>
+<tr><td>Gottfrieding</td><td>DE</td><td>350</td><td class="kalt" style="color:#7fc5ff">-2,9 °C</td><td>14.11. 08:00</td></tr>
+<tr><td>Hohenthann</td><td>DE</td><td>468</td><td class="kalt" style="color:#7fc5ff">-2,9 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Schwandorf</td><td>DE</td><td>356</td><td class="kalt" style="color:#83c7fe">-2,8 °C</td><td>14.11. 04:00</td></tr>
+<tr><td>Špičák (Spitzberg)</td><td>CZ</td><td>973</td><td class="kalt" style="color:#83c7fe">-2,8 °C</td><td>14.11. 05:20</td></tr>
+<tr><td>Simbach/Inn</td><td>DE</td><td>358</td><td class="kalt" style="color:#86c8fe">-2,7 °C</td><td>14.11. 08:00</td></tr>
+<tr><td>Kašperské Hory (Bergreichenstein)</td><td>CZ</td><td>728</td><td class="kalt" style="color:#86c8fe">-2,7 °C</td><td>14.11. 07:10</td></tr>
+<tr><td>Wiesenfelden-Utzenze</td><td>DE</td><td>680</td><td class="kalt" style="color:#86c8fe">-2,7 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Wurmannsquick-Egelsb</td><td>DE</td><td>474</td><td class="kalt" style="color:#86c8fe">-2,7 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Straubing</td><td>DE</td><td>350</td><td class="kalt" style="color:#89c9fe">-2,6 °C</td><td>14.11. 05:00</td></tr>
+<tr><td>Domažlice (Taus)</td><td>CZ</td><td>458</td><td class="kalt" style="color:#89c9fe">-2,6 °C</td><td>14.11. 06:50</td></tr>
+<tr><td>Mehring, Kr. Altoett</td><td>DE</td><td>413</td><td class="kalt" style="color:#89c9fe">-2,6 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Přimda (Pfraumberg)</td><td>CZ</td><td>743</td><td class="kalt" style="color:#89c9fe">-2,6 °C</td><td>14.11. 08:20</td></tr>
+<tr><td>Oberviechtach</td><td>DE</td><td>596</td><td class="kalt" style="color:#8ccafd">-2,5 °C</td><td>14.11. 06:00</td></tr>
+<tr><td>Plzeň, Mikulka (Pilsen)</td><td>CZ</td><td>360</td><td class="kalt" style="color:#8ccafd">-2,5 °C</td><td>14.11. 07:30</td></tr>
+<tr><td>Nittenau-Harting</td><td>DE</td><td>430</td><td class="kalt" style="color:#90ccfd">-2,4 °C</td><td>14.11. 08:00</td></tr>
+<tr><td>Innenried</td><td>DE</td><td>621</td><td class="kalt" style="color:#90ccfd">-2,4 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Hojsova Stráž (Eisenstraß)</td><td>CZ</td><td>866</td><td class="kalt" style="color:#90ccfd">-2,4 °C</td><td>14.11. 06:10</td></tr>
+<tr><td>Grainet-Rehberg</td><td>DE</td><td>628</td><td class="kalt" style="color:#93cdfd">-2,3 °C</td><td>14.11. 08:00</td></tr>
+<tr><td>Kirchberg/Niederbaye</td><td>DE</td><td>684</td><td class="kalt" style="color:#96cefc">-2,2 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Lindberg-Buchenau</td><td>DE</td><td>750</td><td class="kalt" style="color:#9acffc">-2,1 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Klatovy (Klattau)</td><td>CZ</td><td>421</td><td class="kalt" style="color:#9acffc">-2,1 °C</td><td>14.11. 07:50</td></tr>
+<tr><td>Waldmuenchen</td><td>DE</td><td>499</td><td class="kalt" style="color:#9dd1fc">-2,0 °C</td><td>14.11. 01:00</td></tr>
+<tr><td>Loiching</td><td>DE</td><td>416</td><td class="kalt" style="color:#9dd1fc">-2,0 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Zwiesel</td><td>DE</td><td>615</td><td class="kalt" style="color:#a0d2fb">-1,9 °C</td><td>14.11. 06:00</td></tr>
+<tr><td>Český Krumlov, Srnín (Krumau)</td><td>CZ</td><td>546</td><td class="kalt" style="color:#a0d2fb">-1,9 °C</td><td>14.11. 07:10</td></tr>
+<tr><td>Regensburg</td><td>DE</td><td>365</td><td class="kalt" style="color:#a7d4fb">-1,7 °C</td><td>14.11. 05:00</td></tr>
+<tr><td>Lam-Lambach</td><td>DE</td><td>688</td><td class="kalt" style="color:#a7d4fb">-1,7 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Altendorf</td><td>DE</td><td>391</td><td class="kalt" style="color:#a7d4fb">-1,7 °C</td><td>14.11. 08:00</td></tr>
+<tr><td>Metten</td><td>DE</td><td>314</td><td class="kalt" style="color:#a7d4fb">-1,7 °C</td><td>14.11. 05:00</td></tr>
+<tr><td>Mamming-Schneiderber</td><td>DE</td><td>448</td><td class="kalt" style="color:#a7d4fb">-1,7 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Untergriesbach-Glotz</td><td>DE</td><td>572</td><td class="kalt" style="color:#aad6fa">-1,6 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Schmidgaden</td><td>DE</td><td>416</td><td class="kalt" style="color:#aad6fa">-1,6 °C</td><td>14.11. 08:00</td></tr>
+<tr><td>Sankt Englmar</td><td>DE</td><td>804</td><td class="kalt" style="color:#aad6fa">-1,6 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Falkenberg,Kr.Rottal</td><td>DE</td><td>471</td><td class="kalt" style="color:#aad6fa">-1,6 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Saldenburg-Entschenr</td><td>DE</td><td>456</td><td class="kalt" style="color:#aed7fa">-1,5 °C</td><td>14.11. 21:00</td></tr>
+<tr><td>Rotthalmuenster (Lan</td><td>DE</td><td>388</td><td class="kalt" style="color:#aed7fa">-1,5 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Fuerstenzell</td><td>DE</td><td>476</td><td class="kalt" style="color:#b1d8fa">-1,4 °C</td><td>14.11. 08:00</td></tr>
+<tr><td>Pfarrkirchen</td><td>DE</td><td>381</td><td class="kalt" style="color:#b1d8fa">-1,4 °C</td><td>14.11. 06:00</td></tr>
+<tr><td>Weiding, Kreis Cham-</td><td>DE</td><td>424</td><td class="kalt" style="color:#b4daf9">-1,3 °C</td><td>14.11. 08:00</td></tr>
+<tr><td>Prackenbach-Neuhaeus</td><td>DE</td><td>585</td><td class="kalt" style="color:#b4daf9">-1,3 °C</td><td>14.11. 08:00</td></tr>
+<tr><td>Langquaid-Oberschnei</td><td>DE</td><td>378</td><td class="kalt" style="color:#b4daf9">-1,3 °C</td><td>14.11. 08:00</td></tr>
+<tr><td>Trausnitz-Reisach</td><td>DE</td><td>464</td><td class="kalt" style="color:#b4daf9">-1,3 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Aldersbach-Kramersep</td><td>DE</td><td>374</td><td class="kalt" style="color:#b7dbf9">-1,2 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Osterhofen-Thundorf</td><td>DE</td><td>310</td><td class="kalt" style="color:#b7dbf9">-1,2 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Waidhaus-Pfrentsch</td><td>DE</td><td>501</td><td class="kalt" style="color:#bbdcf9">-1,1 °C</td><td>14.11. 08:00</td></tr>
+<tr><td>Landshut-Reithof</td><td>DE</td><td>490</td><td class="kalt" style="color:#bbdcf9">-1,1 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Pocking</td><td>DE</td><td>323</td><td class="kalt" style="color:#bbdcf9">-1,1 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Schoensee-Dietersdor</td><td>DE</td><td>684</td><td class="kalt" style="color:#beddf8">-1,0 °C</td><td>14.11. 07:00</td></tr>
+<tr><td>Hagelstadt</td><td>DE</td><td>364</td><td class="kalt" style="color:#c1dff8">-0,9 °C</td><td>14.11. 08:00</td></tr>
+<tr><td>Bogen-Pfelling</td><td>DE</td><td>343</td><td class="kalt" style="color:#c1dff8">-0,9 °C</td><td>14.11. 08:00</td></tr>
+<tr><td>Buechlberg-Tannoed</td><td>DE</td><td>455</td><td class="kalt" style="color:#c8e1f7">-0,7 °C</td><td>14.11. 08:00</td></tr>
+<tr><td>Teisnach</td><td>DE</td><td>400</td><td class="kalt" style="color:#c8e1f7">-0,7 °C</td><td>14.11. 04:00</td></tr>
+<tr><td>Sonnen</td><td>DE</td><td>847</td><td class="kalt" style="color:#cee4f7">-0,5 °C</td><td>14.11. 21:00</td></tr>
+</table></div></div>
+<div class="card"><h2>❄️ Schneehöhe – alle Stationen (1)</h2><div class="scroll"><table class="ot"><tr><th>Ort</th><th>Land</th><th>Höhe m</th><th>Schneehöhe</th><th>Stand</th></tr>
+<tr><td>Zlatý stoleček (Goldener Stuhl)</td><td>CZ</td><td>1197</td><td class="kalt">4 cm</td><td>14.11.</td></tr>
+</table></div></div>
+<div class="card"><h2>🌊 Hochwasser (Pegel)</h2>Derzeit hat kein Pegel die erste Hochwasserstufe erreicht ✅<div class="sub" style="margin:8px 0 0">Höchste Auslastung (Anteil an der ersten Stufe): Vilshofen (Donau) 67 %; Passau Ilzstadt (Donau) 62 %; Passau (Donau) 60 %</div><div class="sub" style="margin:8px 0 0">Quellen – Bayern: <a href="https://www.hnd.bayern.de" target="_blank" rel="noopener">Hochwassernachrichtendienst Bayern</a> (Bayerisches Landesamt für Umwelt), Meldestufen 1–4; Tschechien: ČHMÚ (opendata.chmi.cz), Hochwassergrade 1–3. 88 von 88 Pegeln ausgewertet, Stand 14.11.2026 21:30 Uhr. Keine amtliche Hochwassermeldung.</div></div>
+<div class="fuss">Datenquellen: Deutscher Wetterdienst (DWD, Open Data), Bright Sky, CHMI (Tschechien). Automatisch erzeugt – keine amtliche Warnung, maßgeblich ist <a href="https://www.dwd.de">dwd.de</a>.</div></main><script>
+var aud = null, audKn = null;
+function audBeschr(b) { b.textContent = ((b === audKn && aud && !aud.paused) ? "\u23f8 " : "\u25b6 ") + b.dataset.t; b.classList.toggle("an", b === audKn && !!aud && !aud.paused); }
+function audioZeigen(j) {
+  var a = j.audio || {};
+  [["ap", "Prognose", "prognose", "letzte-prognose.wav"], ["aw", "Warnung", "warnung", "letzte-warnung.wav"]].forEach(function (x) {
+    var b = document.getElementById(x[0]);
+    if (!b) return;
+    if (!a[x[2]]) { b.hidden = true; return; }
+    b.hidden = false; b.dataset.src = x[3] + "?v=" + encodeURIComponent(a[x[2]]);
+    b.dataset.t = "Letzte " + x[1] + " " + a[x[2]]; b.title = "Letzte " + x[1] + ", gesendet " + a[x[2]] + " Uhr - zum Abspielen anklicken";
+    audBeschr(b);
+    if (!b.dataset.ok) {
+      b.dataset.ok = "1";
+      b.addEventListener("click", function () {
+        if (audKn === b && aud) { if (aud.paused) aud.play(); else aud.pause(); audBeschr(b); return; }
+        if (aud) { aud.pause(); var alt = audKn; audKn = null; if (alt) audBeschr(alt); }
+        aud = new Audio(b.dataset.src); audKn = b;
+        aud.onended = aud.onpause = aud.onplay = function () { audBeschr(b); };
+        aud.onerror = function () { b.textContent = "Audio nicht abrufbar"; };
+        aud.play().catch(function () { audBeschr(b); });
+      });
+    }
+  });
+}
+fetch("wetter.json?t=" + Date.now(), {cache: "no-store"}).then(function (r) { return r.json(); }).then(audioZeigen).catch(function () {});
+</script></body></html>

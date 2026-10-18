@@ -1,0 +1,97 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Info – Wetter Bayerischer Wald / Böhmerwald</title>
+<style>
+:root{color-scheme:dark;--bg:#000;--card:#10151b;--tx:#e8edf3;--mu:#97a3b2;--ln:#26303b;--ak:#64b5f6}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--tx)}
+main{max-width:860px;margin:0 auto;padding:14px 14px 40px}h1{font-size:1.4rem;margin:.3em 0 .6em}h2{font-size:1.05rem;margin:0 0 .5em;color:var(--ak)}
+nav{display:flex;gap:10px;flex-wrap:wrap;margin:2px 0 12px}
+nav a{color:#cfd8e3;background:#1b2530;border:1px solid #33465a;border-radius:8px;font:600 15px/1 system-ui,sans-serif;text-decoration:none;padding:9px 18px}
+nav a:hover{background:#26384a}nav a.ak{background:#2f5d94;border-color:#4f86c6;color:#fff}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:10px;padding:12px 16px;margin-bottom:12px}
+.card.rot{border-color:#c62828;background:#2a0f0f}.card.rot h2{color:#ff6b6b}.card.warn{border-color:#a8691f;background:#1a130b}.card.warn h2{color:#ffb74d}.card p{margin:.35em 0}ul{margin:.3em 0;padding-left:1.2em}a{color:var(--ak)}.mu{color:var(--mu);font-size:.9rem}
+</style></head><body><main>
+<nav><a href="index.html">Wetter</a><a href="karte.html">Karte</a><a href="tabelle.html">Tabelle</a><a class="ak" href="impressum.html">INFO</a></nav>
+<h1>Impressum und Informationen zur Station</h1>
+
+<div class="card"><h2>Was ist DF0ZW?</h2>
+<p>DF0ZW ist eine Amateurfunk-Station im Bayerischen Wald (JN69OA), die als AllStarLink-Node (Node 56214) und über EchoLink (Node 540952)
+auf <b>145,450 MHz simplex</b> betrieben wird.</p>
+<p>Ziel ist es, als <b>Wetter-Warnstation</b> nach dem US-Vorbild SKYWARN über die Wettersituation im bayerisch-böhmischen Grenzgebiet
+(und den vorgelagerten Regionen) zu informieren. Die Station sagt automatisch das Wetter für den Bayerischen Wald und den Böhmerwald an:</p>
+<ul>
+<li>zu festen Uhrzeiten die Wetterprognose mit aktuellen Werten,</li>
+<li>die kältesten bzw. wärmsten Orte der Region zum aktuellen Zeitpunkt („Jetzt“),</li>
+<li>den extremsten Temperaturwert, der in den letzten 24 Stunden gemessen wurde,</li>
+<li>eine Einschätzung der Entwicklung für die nächsten drei Tage</li>
+<li>und, sobald es eine Warnung gibt, die amtlichen Wetterwarnungen des Deutschen Wetterdienstes und/oder des tschechischen ČHMÚ.</li>
+</ul>
+<p>Die Ansagen werden automatisch erzeugt und mit einer synthetischen Stimme über Funk (145,450 MHz) und über den Node selbst (AllStarLink / EchoLink) ausgesendet.
+Diese Internetseite ist ein Abbild dieser Daten und stellt die zuletzt gesendeten Ansagen zum Nachhören bereit.</p>
+</div>
+
+<div class="card rot"><h2>WICHTIG: Lokale QSOs haben Vorrang</h2>
+<p>Ist die Frequenz 145,450 MHz durch ein lokales Gespräch oder über EchoLink / AllStarLink gerade belegt, wird die Ansage nicht dazwischen gesendet,
+sondern kommt <b>im Anschluss</b> an das laufende QSO.</p></div>
+
+<div class="card warn"><h2>⚠ Wetterwarnungen – was sie bedeuten</h2>
+<p>Liegt für eines der unten genannten Gebiete eine Warnung des Deutschen Wetterdienstes oder des tschechischen ČHMÚ vor, wird sie
+<b>sofort und ohne feste Uhrzeit</b> im Umkreis von <b>ca. 100 km</b> als Warnmeldung ausgesendet. Der Inhalt wird ausschließlich durch die Wetterdienste
+definiert und beschrieben; DF0ZW hat keinen Einfluss auf die Warnstufen und Inhalte.</p>
+<p>Die Aussendung nennt die Warnstufe, die Art der Gefahr (zum Beispiel Frost, Glatteis, Sturm, Starkregen), die betroffenen Gebiete und den Zeitraum.
+Solange die Warnung gilt, wird die Meldung in Abständen wiederholt.</p>
+<ul>
+<li><b>Stufe 1 – Wetterwarnung:</b> Vorsicht, mögliche Beeinträchtigungen</li>
+<li><b>Stufe 2 – Markante Wetterwarnung:</b> markantes Wetter, mit Einschränkungen und Gefahren ist zu rechnen</li>
+<li><b>Stufe 3 – Unwetterwarnung:</b> Unwetter, erhebliche Gefahr für Menschen und Sachwerte</li>
+<li><b>Stufe 4 – Extreme Unwetterwarnung:</b> extremes Unwetter; die Meldung beginnt zusätzlich mit einem Sirenenton</li>
+</ul>
+<p>Warngebiete: Landkreis Cham; Landkreis Regen; Landkreis Freyung-Grafenau; Landkreis Passau; Landkreis Deggendorf; Landkreis Straubing-Bogen; Landkreis Dingolfing-Landau; Stadt Passau; Stadt Straubing; Bezirke in Tschechien: Domažlice (Taus), Klatovy (Klattau), Prachatice (Prachatitz).</p>
+<p>Gleiche Warnungen unterschiedlicher Gebiete werden in einer gemeinsamen Warnung zusammengefasst. Unterschiedliche Zeiträume oder Inhalte erzeugen eine separate Meldung.</p>
+<p class="mu">Die Meldung ergänzt amtliche Warnwege (Warn-Apps, Rundfunk, dwd.de), ersetzt diese aber nicht.</p></div>
+
+<div class="card"><h2>Wetterprognose</h2>
+<p>Die Wetterprognose wird täglich zu diesen Uhrzeiten (Ortszeit) gesendet: <b>06:30, 09:00 und 18:00 Uhr</b>.</p>
+<p class="mu">Weitere Einzelheiten zur Station stehen auf <a href="https://www.qrz.com/db/DF0ZW" target="_blank" rel="noopener">qrz.com/db/DF0ZW</a>.</p></div>
+
+<div class="card"><h2>Betreiber und Ersteller</h2>
+<p><b>Krottenthaler Stefan (DJ1RKS)</b><br>Betrieb und Entwicklung der Station und dieser Internetseite.</p>
+<p>Empfangsberichte oder Anmerkungen sind gerne willkommen!<br>
+Kontakt: <a href="mailto:mastkro@yahoo.de">mastkro@yahoo.de</a><br>
+Weitere Angaben über die Amateurfunk-Datenbank: <a href="https://www.qrz.com/db/DJ1RKS" target="_blank" rel="noopener">qrz.com/db/DJ1RKS</a></p>
+<p class="mu">Es handelt sich um ein privates, nicht-kommerzielles Amateurfunk-Projekt ohne Werbung.</p></div>
+
+<div class="card"><h2>Eigene Wetterstation Innenried</h2>
+<p>Zusätzlich zu den amtlichen Daten betreibe ich eine eigene Wetterstation, die in DF0ZW integriert ist:
+<a href="https://df0zw.github.io/wetterstation-innenried/" target="_blank" rel="noopener">Wetterstation Innenried</a></p></div>
+
+<div class="card"><h2>Datenquellen</h2>
+<ul>
+<li>Deutscher Wetterdienst (DWD): Wetterwarnungen, Vorhersage (MOSMIX) und Stationsmesswerte, Open Data –
+<a href="https://www.dwd.de" target="_blank" rel="noopener">dwd.de</a></li>
+<li>Bright Sky: Programmierschnittstelle für DWD-Daten – <a href="https://brightsky.dev" target="_blank" rel="noopener">brightsky.dev</a></li>
+<li>Tschechischer Wetterdienst (ČHMÚ): Messwerte tschechischer Stationen und Pegelstände (Hochwassergrade) – <a href="https://www.chmi.cz" target="_blank" rel="noopener">chmi.cz</a></li>
+<li>Pegelstände und Meldestufen: Hochwassernachrichtendienst Bayern (Bayerisches Landesamt für Umwelt) – <a href="https://www.hnd.bayern.de" target="_blank" rel="noopener">hnd.bayern.de</a></li>
+<li>Eigene Wetterstation Innenried (siehe oben)</li>
+<li>Karte: Kartendaten © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>-Mitwirkende;
+Gelände: <a href="https://opentopomap.org" target="_blank" rel="noopener">OpenTopoMap</a> (CC-BY-SA); Satellit: Esri, Maxar, Earthstar Geographics;
+Wanderwege: <a href="https://hiking.waymarkedtrails.org" target="_blank" rel="noopener">Waymarked Trails</a> (CC-BY-SA); Darstellung mit Leaflet</li>
+</ul></div>
+
+<div class="card"><h2>Hinweise</h2>
+<p><b>Keine amtliche Warnung.</b> Alle Angaben werden automatisch erzeugt und können Fehler oder Verzögerungen enthalten; es gibt keine Gewähr.
+Maßgeblich sind die amtlichen Warnungen und Vorhersagen des Deutschen Wetterdienstes unter <a href="https://www.dwd.de" target="_blank" rel="noopener">dwd.de</a>
+und des Tschechischen Wetterdienstes (ČHMÚ) unter <a href="https://www.chmi.cz" target="_blank" rel="noopener">chmi.cz</a>.</p>
+<p>„Jetzt“ bedeutet: letzter gemeldeter Stationswert (die Uhrzeit ist die Messzeit). Schneehöhen werden aus den Daten errechnet.
+Stationen können zeitweise keine Werte liefern.</p>
+<p>„24h“ bedeutet: der extremste Temperaturwert, der in den letzten 24 Stunden gemessen wurde.</p>
+<p>Orte in Tschechien werden in der Ansage ins Deutsche übersetzt; auf der Internetseite stehen sie im Original (mit dem deutschen Namen in Klammern).
+Das ist technisch bedingt, da die verwendete Sprachausgabe kein Tschechisch sprechen kann.</p></div>
+
+<div class="card"><h2>Datenschutz</h2>
+<p>Diese Seite setzt keine Cookies, verwendet keine Statistik- oder Werbedienste und speichert keine Besucherdaten durch den Betreiber.
+Beim Aufruf übermittelt dein Browser technisch bedingt seine IP-Adresse an den Hosting-Dienst (GitHub Pages). Die Kartenseite lädt zusätzlich
+Kartenkacheln und Programmbibliotheken von Drittanbietern (OpenStreetMap, OpenTopoMap, Esri, Waymarked Trails, cdnjs); auch dabei wird deine IP-Adresse an diese Dienste übertragen.</p></div>
+
+<p style="text-align:center;margin:18px 0 0">Viel Spaß mit der Station wünscht DJ1RKS / Stefan</p>
+</main></body></html>
