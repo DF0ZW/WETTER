@@ -1,0 +1,140 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wetter Bayerischer Wald / Böhmerwald</title>
+<style>
+html,body{margin:0;height:100%;background:#000;overflow:hidden;cursor:auto}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
+#bild{position:absolute;left:0;top:0;width:1920px;height:1080px}
+#warn{position:absolute;overflow:hidden;color:#f2f5f8;font-family:"DejaVu Sans",Verdana,Arial,sans-serif}
+#verb{position:absolute;overflow:hidden;color:#f2f5f8;font-family:"DejaVu Sans",Verdana,Arial,sans-serif}
+#verb .vt{font-size:28px;font-weight:bold;color:#64b5f6;line-height:34px;margin-bottom:8px}
+#verb .vt small{font-size:20px;font-weight:normal;color:#9aa7b5;margin-left:14px}
+#verb .ve{font-size:24px;line-height:32px;max-height:64px;overflow:hidden}
+#verb .ve span{white-space:nowrap;margin-right:12px;display:inline-block}
+#inh{will-change:transform}
+#kl{position:fixed;right:10px;bottom:8px;z-index:5;font:600 14px sans-serif;color:#cfd8e3;background:rgba(27,37,48,.85);border:1px solid #33465a;border-radius:8px;padding:7px 14px;text-decoration:none;cursor:pointer}
+#kl:hover,#kt:hover{background:#2f5d94}#kt{position:fixed;right:110px;bottom:8px;z-index:5;font:600 14px sans-serif;color:#cfd8e3;background:rgba(27,37,48,.85);border:1px solid #33465a;border-radius:8px;padding:7px 14px;text-decoration:none}
+.orte{position:absolute;overflow:hidden;color:#f2f5f8;font-family:"DejaVu Sans",Verdana,Arial,sans-serif}
+.orte.sc{-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 12px,#000 calc(100% - 18px),transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 12px,#000 calc(100% - 18px),transparent 100%)}
+.orte .r{position:relative;height:40px;white-space:nowrap}.orte .r.zb{background:#0d1014}
+.orte .r span{position:absolute;top:0;line-height:40px;font-size:22px}
+.orte .rg{left:0;width:54px;text-align:center;color:#9aa7b5;font-size:20px}
+.orte .m{left:8px;top:5px!important;width:30px;height:30px;line-height:30px!important;border-radius:50%;text-align:center;color:#000;font-weight:bold;font-size:20px!important}
+.orte .on{left:62px;width:336px;overflow:hidden;text-overflow:ellipsis}.orte .b{font-weight:bold}
+.orte .ol{left:410px}.orte .oh{left:484px}.orte .ot{left:584px;font-size:24px;font-weight:bold}.orte .ou{left:716px;color:#9aa7b5}
+.orte .kein{padding:8px;color:#9aa7b5;font-size:22px}
+#warn.sc{-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16px,#000 calc(100% - 24px),transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 16px,#000 calc(100% - 24px),transparent 100%)}
+.w{position:relative;padding-left:22px;margin-bottom:14px}
+.w i{position:absolute;left:0;top:0;bottom:8px;width:8px}
+.t{font-size:24px;font-weight:bold;line-height:32px}.g{font-size:22px;line-height:28px}.z{font-size:20px;line-height:28px;color:#9aa7b5}
+.k{font-size:24px;line-height:32px}
+</style></head><body>
+<a id="kt" href="tabelle.html">Tabelle</a><a id="kl" href="karte.html">Karte &rarr;</a>
+<div id="stage"><img id="bild" src="wetter-quer-monitor.png" alt=""><div id="verb"></div><div id="warn"><div id="inh"></div></div>
+<div id="o1" class="orte"><div id="o1i"></div></div><div id="o2" class="orte"><div id="o2i"></div></div></div>
+<script>
+// Tempo und Pausen (zum Anpassen): Pixel je Sekunde, Pause oben/unten in Millisekunden
+var TEMPO = 22, TEMPO_L = 30, PAUSE = 7000;
+var warn = document.getElementById("warn"), inh = document.getElementById("inh"), bild = document.getElementById("bild");
+var verb = document.getElementById("verb"), vfeld = null;
+var stage = document.getElementById("stage"), sig = "", pos = 0, phase = "wait", t0 = 0, tl = 0;
+function skalieren() {
+  var s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+  stage.style.transform = "translate(" + ((window.innerWidth - 1920 * s) / 2) + "px," + ((window.innerHeight - 1080 * s) / 2) + "px) scale(" + s + ")";
+}
+function esc(t) { var d = document.createElement("div"); d.textContent = t; return d.innerHTML; }
+function zeigen(j) {
+  var f = j.warnfeld || {};
+  if (!f.w) return;
+  vfeld = j.verbfeld || null;
+  if (vfeld && vfeld.w) { verb.style.left = vfeld.x + "px"; verb.style.top = vfeld.y + "px"; verb.style.width = vfeld.w + "px"; verb.style.height = vfeld.h + "px"; }
+  var neu = JSON.stringify([f, j.warn_gruppen, j.warn_status]);
+  if (neu === sig) return;
+  sig = neu;
+  warn.style.left = f.x + "px"; warn.style.top = f.y + "px"; warn.style.width = f.w + "px"; warn.style.height = f.h + "px";
+  var h = "";
+  var g = j.warn_gruppen || [];
+  if (g.length) {
+    for (var i = 0; i < g.length; i++)
+      h += '<div class="w"><i style="background:' + esc(g[i].farbe) + '"></i><div class="t">' + esc(g[i].titel) + '</div><div class="g">' +
+           esc(g[i].gebiete) + '</div><div class="z">' + esc(g[i].zeit) + '</div></div>';
+  } else if (j.warn_status === "fehler") {
+    h = '<div class="k" style="color:#ffb74d">Warnungen derzeit nicht abrufbar.</div>';
+  } else {
+    h = '<div class="k" style="color:#66bb6a">Keine Warnungen für die konfigurierten Gebiete.</div>';
+  }
+  inh.innerHTML = h; rollen[0].reset();
+}
+function verbZeigen(j, alter) {
+  // alter: Sekunden seit dem letzten Lebenszeichen des Dienstes; zu alt oder nicht ermittelbar = Feld bleibt leer
+  var l = j && j.liste;
+  if (!vfeld || !vfeld.w || l === null || l === undefined || alter > 600) { verb.innerHTML = ""; return; }
+  var h = '<div class="vt">Verbunden</div><div class="ve">';
+  if (!l.length) h += '<span style="color:#9aa7b5">Derzeit niemand</span>';
+  for (var i = 0; i < l.length; i++) h += "<span>" + esc(l[i]) + (i < l.length - 1 ? " ·" : "") + "</span>";
+  verb.innerHTML = h + "</div>";
+}
+function verbLaden() {
+  fetch("verbindungen.json?t=" + Date.now(), {cache: "no-store"}).then(function (r) {
+    var jetzt = r.headers.get("Date") ? new Date(r.headers.get("Date")).getTime() : Date.now();
+    return r.json().then(function (j) { verbZeigen(j, (jetzt - j.stand * 1000) / 1000); });
+  }).catch(function () { verbZeigen(null, 0); });
+}
+function laden() {
+  fetch("wetter.json?t=" + Date.now(), {cache: "no-store"}).then(function (r) { return r.json(); }).then(function (j) { zeigen(j); orteZeigen(j); }).catch(function () {});
+  var im = new Image();
+  im.onload = function () { bild.src = im.src; };
+  im.src = "wetter-quer-monitor.png?t=" + Date.now();
+}
+function Roll(box, inh, tempo) { this.box = box; this.inh = inh; this.tempo = tempo; this.pos = 0; this.phase = "wait"; this.t0 = 0; this.tl = 0; }
+Roll.prototype.reset = function () { this.pos = 0; this.phase = "wait"; this.t0 = performance.now(); this.inh.style.transform = "none"; };
+Roll.prototype.step = function (ts) {
+  var ueber = this.inh.offsetHeight - this.box.clientHeight;
+  var sc = ueber > 1;
+  if (sc !== this.box.classList.contains("sc")) this.box.classList.toggle("sc", sc);
+  if (ueber <= 1) { this.pos = 0; this.phase = "wait"; this.t0 = ts; this.inh.style.transform = "none"; return; }
+  if (this.phase === "wait") { if (ts - this.t0 > PAUSE) { this.phase = "lauf"; this.tl = ts; } }
+  else if (this.phase === "lauf") {
+    this.pos += this.tempo * (ts - this.tl) / 1000; this.tl = ts;
+    if (this.pos >= ueber) { this.pos = ueber; this.phase = "ende"; this.t0 = ts; }
+  } else if (this.phase === "ende") { if (ts - this.t0 > PAUSE) { this.pos = 0; this.phase = "wait"; this.t0 = ts; } }
+  this.inh.style.transform = "translateY(" + (-this.pos) + "px)";
+};
+var rollen = [new Roll(warn, inh, TEMPO), new Roll(document.getElementById("o1"), document.getElementById("o1i"), TEMPO_L),
+              new Roll(document.getElementById("o2"), document.getElementById("o2i"), TEMPO_L)];
+var orteSig = {};
+var MEDAILLE = ["#ffd54f", "#cfd8dc", "#d7a06b"];
+function orteZeigen(j) {
+  var lf = j.listenfeld || {}, o = j.orte || {};
+  var paare = [["jetzt", "o1", "o1i", 1], ["extrem", "o2", "o2i", 2]];
+  for (var p = 0; p < paare.length; p++) {
+    var f = lf[paare[p][0]], box = document.getElementById(paare[p][1]), in_ = document.getElementById(paare[p][2]);
+    if (!f || !f.w) { box.style.display = "none"; continue; }
+    var fest = (j.orte_fest === undefined) ? 5 : j.orte_fest;
+    var liste = (o[paare[p][0]] || []).slice(fest);              // die ersten "fest" Zeilen stehen im Bild
+    var neu = JSON.stringify([f, liste, j.orte_farbe]);
+    if (orteSig[paare[p][0]] === neu) continue;
+    orteSig[paare[p][0]] = neu;
+    box.style.display = "block"; box.style.left = f.x + "px"; box.style.top = f.y + "px"; box.style.width = f.w + "px"; box.style.height = f.h + "px";
+    var h = "";
+    for (var i = 0; i < liste.length; i++) {
+      var e = liste[i], g = i + fest, fett = g < 3 ? " b" : "";
+      h += '<div class="r' + (g % 2 === 0 ? " zb" : "") + '">' +
+           (g < 3 ? '<span class="m" style="background:' + MEDAILLE[g] + '">' + (g + 1) + "</span>" : '<span class="rg">' + (g + 1) + "</span>") +
+           '<span class="on' + fett + '">' + esc(e.name) + '</span><span class="ol">' + esc(e.land) + '</span><span class="oh">' + esc(e.hoehe) +
+           '</span><span class="ot" style="color:' + esc(j.orte_farbe || "#64b5f6") + '">' + esc(e.t) + '</span><span class="ou">' + esc(e.uhr) + "</span></div>";
+    }
+    in_.innerHTML = h;
+    var ns = in_.querySelectorAll(".on");                        // lange Namen: erst kleinere Schrift, dann abschneiden
+    for (var k = 0; k < ns.length; k++)
+      for (var gr = 20; ns[k].scrollWidth > ns[k].clientWidth && gr >= 18; gr -= 2) ns[k].style.fontSize = gr + "px";
+    rollen[1 + p].reset();
+  }
+}
+function tick(ts) {
+  for (var i = 0; i < rollen.length; i++) rollen[i].step(ts);
+  requestAnimationFrame(tick);
+}
+window.addEventListener("resize", skalieren); skalieren();
+laden(); setInterval(laden, 60000); requestAnimationFrame(tick);
+</script></body></html>
